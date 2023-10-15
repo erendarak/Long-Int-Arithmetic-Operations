@@ -163,30 +163,36 @@ public class Operations {
             tmp2 = tmp2.getNext();
         }
         if (tmp1 != null){
-            if (minusCarry == -1){
-                tmp1.setData(tmp1.data - 1);
-                if (tmp1.getData() < 0){
-                    subtractedList.insertLast((new Node(tmp1.getData() + 10)));
-                    minusCarry = -1;
+            while(tmp1 != null){
+                if (minusCarry == -1){
+                    tmp1.setData(tmp1.data - 1);
+                    if (tmp1.getData() < 0){
+                        subtractedList.insertLast((new Node(tmp1.getData() + 10)));
+                        minusCarry = -1;
+                    }else{
+                        subtractedList.insertLast(new Node(tmp1.getData()));
+                        minusCarry = 0;
+                    }
                 }else{
                     subtractedList.insertLast(new Node(tmp1.getData()));
-                    minusCarry = 0;
                 }
-            }else{
-                subtractedList.insertLast(new Node(tmp1.getData()));
+                tmp1 = tmp1.getNext();
             }
         } else if (tmp2 != null){
-            if (minusCarry == -1){
-                tmp2.setData(tmp2.data - 1);
-                if (tmp2.getData() < 0){
-                    subtractedList.insertLast((new Node(tmp2.getData() + 10)));
-                    minusCarry = -1;
+            while (tmp2 != null){
+                if (minusCarry == -1){
+                    tmp2.setData(tmp2.data - 1);
+                    if (tmp2.getData() < 0){
+                        subtractedList.insertLast((new Node(tmp2.getData() + 10)));
+                        minusCarry = -1;
+                    }else{
+                        subtractedList.insertLast(new Node(tmp2.getData()));
+                        minusCarry = 0;
+                    }
                 }else{
                     subtractedList.insertLast(new Node(tmp2.getData()));
-                    minusCarry = 0;
                 }
-            }else{
-                subtractedList.insertLast(new Node(tmp2.getData()));
+                tmp2 = tmp2.getNext();
             }
         }
         if (subtractedList.head.getData() == 0 && subtractedList.head.getNext() != null) {
