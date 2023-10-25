@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae0c064-5364-48a7-a1fe-260bb1e5ad91" name="Changes" comment="Created classes for calculations. Added Addition and Subtraction methods for operations. Added LinkedList methods for general usage. Added LongNumber to have long string.">
+    <list default="true" id="9ae0c064-5364-48a7-a1fe-260bb1e5ad91" name="Changes" comment="Fixed Subtraction method.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LongNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LongNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Operations.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +70,12 @@
       <option name="presentableId" value="Default" />
       <updated>1697397288292</updated>
       <workItem from="1697397289406" duration="606000" />
-      <workItem from="1697397939134" duration="738000" />
+      <workItem from="1697397939134" duration="8711000" />
+      <workItem from="1697406817424" duration="16000" />
+      <workItem from="1698087742442" duration="2047000" />
+      <workItem from="1698131006800" duration="803000" />
+      <workItem from="1698213908225" duration="933000" />
+      <workItem from="1698259022755" duration="865000" />
     </task>
     <task id="LOCAL-00001" summary="Created classes for calculations. Added Addition and Subtraction methods for operations. Added LinkedList methods for general usage. Added LongNumber to have long string.">
       <created>1697397491769</created>
@@ -76,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697397491769</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed Subtraction method.">
+      <created>1697398729979</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697398729979</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +99,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Created classes for calculations. Added Addition and Subtraction methods for operations. Added LinkedList methods for general usage. Added LongNumber to have long string." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created classes for calculations. Added Addition and Subtraction methods for operations. Added LinkedList methods for general usage. Added LongNumber to have long string." />
+    <MESSAGE value="Fixed Subtraction method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Subtraction method." />
   </component>
 </project>

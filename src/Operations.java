@@ -9,6 +9,7 @@ public class Operations {
 
     /**
      * This constructor allow us to create our operations class with given longNumbers.
+     * @param firstString first long number
      * @param firstString first long numberr
      * @param secondString second long number
      * @param linkedList1  first linked list
@@ -48,16 +49,16 @@ public class Operations {
      * Addition operator of our operations class. This will take two reversed linked list to start adding them to another linked list (addedList).
      * It checks carry in every operation to avoid exceptional cases.
      */
-    public String Addition(){
+    public LinkedList Addition(LinkedList linkedList1, LinkedList linkedList2){
         int realCounter;
         int carry = 0;
         LinkedList addedList = new LinkedList();
 
-        if(counter1 > counter2){
-            realCounter = counter2;
+        if(linkedList1.numberOfElements() > linkedList2.numberOfElements()){
+            realCounter = linkedList2.numberOfElements();
         }
         else {
-            realCounter = counter1;
+            realCounter = linkedList1.numberOfElements();
         }
 
         Node tmp1 = linkedList1.getHead();
@@ -67,6 +68,12 @@ public class Operations {
             if(carry==0){
                 addedInt = tmp1.getData() + tmp2.getData();
                 if(addedInt >= 10){
+                    carry= addedInt / 10;
+                    addedInt %= 10;
+                }else{
+                    carry=0;
+                }
+                if(addedInt >= 10){
                     carry=1;
                     addedInt %= 10;
                 }else{
@@ -74,9 +81,9 @@ public class Operations {
                 }
             }
             else {
-                addedInt = tmp1.getData() + tmp2.getData() + 1;
+                addedInt = tmp1.getData() + tmp2.getData() + carry;
                 if(addedInt >= 10){
-                    carry=1;
+                    carry=addedInt / 10;
                     addedInt = (addedInt % 10);
                 }else{
                     carry=0;
@@ -90,11 +97,11 @@ public class Operations {
             additionInputDontMatch(carry, addedList, tmp1);
         } else if (tmp2 != null){
             additionInputDontMatch(carry, addedList, tmp2);
-        } else if (tmp1 == null && tmp2 == null && carry == 1){
-            addedList.insertLast(new Node(1));
+        } else if (tmp1 == null && tmp2 == null && carry != 0){
+            addedList.insertLast(new Node(carry));
         }
 
-        return addedList.toString();
+        return addedList;
     }
 
     /**
@@ -105,8 +112,8 @@ public class Operations {
      */
     private void additionInputDontMatch(int carry, LinkedList addedList, Node tmp1) {
         while (tmp1 != null){
-            if (carry == 1) {
-                addedList.insertLast(new Node(1 + tmp1.getData()));
+            if (carry != 0) {
+                addedList.insertLast(new Node(carry + tmp1.getData()));
                 carry=0;
             }
             else{
@@ -162,38 +169,35 @@ public class Operations {
             tmp1 = tmp1.getNext();
             tmp2 = tmp2.getNext();
         }
-        if (tmp1 != null){
-            while(tmp1 != null){
-                if (minusCarry == -1){
-                    tmp1.setData(tmp1.data - 1);
-                    if (tmp1.getData() < 0){
-                        subtractedList.insertLast((new Node(tmp1.getData() + 10)));
-                        minusCarry = -1;
-                    }else{
-                        subtractedList.insertLast(new Node(tmp1.getData()));
-                        minusCarry = 0;
-                    }
+        while (tmp1 != null){
+            if (minusCarry == -1){
+                tmp1.setData(tmp1.data - 1);
+                if (tmp1.getData() < 0){
+                    subtractedList.insertLast((new Node(tmp1.getData() + 10)));
+                    minusCarry = -1;
                 }else{
                     subtractedList.insertLast(new Node(tmp1.getData()));
+                    minusCarry = 0;
                 }
-                tmp1 = tmp1.getNext();
+            }else{
+                subtractedList.insertLast(new Node(tmp1.getData()));
             }
-        } else if (tmp2 != null){
-            while (tmp2 != null){
-                if (minusCarry == -1){
-                    tmp2.setData(tmp2.data - 1);
-                    if (tmp2.getData() < 0){
-                        subtractedList.insertLast((new Node(tmp2.getData() + 10)));
-                        minusCarry = -1;
-                    }else{
-                        subtractedList.insertLast(new Node(tmp2.getData()));
-                        minusCarry = 0;
-                    }
+            tmp1 = tmp1.getNext();
+        }
+        while(tmp2 != null){
+            if (minusCarry == -1){
+                tmp2.setData(tmp2.data - 1);
+                if (tmp2.getData() < 0){
+                    subtractedList.insertLast((new Node(tmp2.getData() + 10)));
+                    minusCarry = -1;
                 }else{
                     subtractedList.insertLast(new Node(tmp2.getData()));
+                    minusCarry = 0;
                 }
-                tmp2 = tmp2.getNext();
+            }else{
+                subtractedList.insertLast(new Node(tmp2.getData()));
             }
+            tmp2 = tmp2.getNext();
         }
         if (subtractedList.head.getData() == 0 && subtractedList.head.getNext() != null) {
             subtractedList.deleteFirst();
@@ -203,11 +207,46 @@ public class Operations {
 
     /**
      * Multiplication operator of our operations class.
-     * @param firstString
-     * @param secondString
      */
-    public void Multiplication(LongNumber firstString, LongNumber secondString){
 
+    public String Multiplication(){
+        LinkedList multiplicatedList = new LinkedList();
+        Node tmp1 = linkedList1.getHead();
+
+        int i = 0;
+
+        while(tmp1 != null){
+            int carry = 0;
+            Node tmp2 = linkedList2.getHead();
+            int j = 0;
+            while(tmp2 != null){
+                int multiplication = tmp1.getData() * tmp2.getData();
+                int multiplicatedInt = multiplication + carry + (i + j < multiplicatedList.numberOfElements() ? multiplicatedList.getNodeI(i + j) : 0);
+                if (i + j < multiplicatedList.numberOfElements()) {
+                    multiplicatedList.setDigit(i + j, multiplicatedInt % 10);
+                } else {
+                    multiplicatedList.insertFirst(new Node(multiplicatedInt % 10));
+                }
+                carry = multiplicatedInt / 10;
+                tmp2 = tmp2.getNext();
+                j++;
+            }
+            if (carry > 0) {
+                if (i + j < multiplicatedList.numberOfElements()) {
+                    multiplicatedList.setDigit(i + j, multiplicatedList.getNodeI(i + j) + carry);
+                } else {
+                    multiplicatedList.insertFirst(new Node(carry));
+                }
+            }
+            tmp1 = tmp1.getNext();
+            i++;
+        }
+        while (multiplicatedList.numberOfElements() > 1 && multiplicatedList.getTail().getData() == 0) {
+            multiplicatedList.deleteLast();
+        }
+
+        multiplicatedList.reverseList(multiplicatedList);
+        return multiplicatedList.toString();
     }
 
     /**

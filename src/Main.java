@@ -24,14 +24,22 @@ public class Main {
         Operations operations = new Operations(longNumber1, longNumber2, linkedList1, linkedList2);
 
 
+        System.out.println("==== multiplication regular ====");
+        System.out.println(operations.Multiplication());
+
+        System.out.println("==== l1 inverted ====");
         System.out.println(linkedList1.toString());
-        System.out.println("l1 inverted ====");
+
+        System.out.println("==== l2 inverted ====");
         System.out.println(linkedList2.toString());
-        System.out.println("l2 inverted ====");
-        System.out.println(operations.Addition());
-        System.out.println("addition regular ====");
+
+        System.out.println("==== addition regular ====");
+        System.out.println(operations.Addition(linkedList1,linkedList2).toString());
+
+        System.out.println("==== subtraction regular ====");
         System.out.println(operations.Subtraction());
-        System.out.println("subtraction regular ====");
+
+
 
 
 

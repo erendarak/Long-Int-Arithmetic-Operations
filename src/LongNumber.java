@@ -20,5 +20,4 @@ public class LongNumber {
     public String getStringData() {
         return stringData;
     }
-
 }
