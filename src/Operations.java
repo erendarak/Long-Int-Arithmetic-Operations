@@ -49,16 +49,16 @@ public class Operations {
      * Addition operator of our operations class. This will take two reversed linked list to start adding them to another linked list (addedList).
      * It checks carry in every operation to avoid exceptional cases.
      */
-    public LinkedList Addition(LinkedList linkedList1, LinkedList linkedList2){
+    public String Addition(){
         int realCounter;
         int carry = 0;
         LinkedList addedList = new LinkedList();
 
-        if(linkedList1.numberOfElements() > linkedList2.numberOfElements()){
-            realCounter = linkedList2.numberOfElements();
+        if(counter1 > counter2){
+            realCounter = counter2;
         }
         else {
-            realCounter = linkedList1.numberOfElements();
+            realCounter = counter1;
         }
 
         Node tmp1 = linkedList1.getHead();
@@ -68,12 +68,6 @@ public class Operations {
             if(carry==0){
                 addedInt = tmp1.getData() + tmp2.getData();
                 if(addedInt >= 10){
-                    carry= addedInt / 10;
-                    addedInt %= 10;
-                }else{
-                    carry=0;
-                }
-                if(addedInt >= 10){
                     carry=1;
                     addedInt %= 10;
                 }else{
@@ -81,9 +75,9 @@ public class Operations {
                 }
             }
             else {
-                addedInt = tmp1.getData() + tmp2.getData() + carry;
+                addedInt = tmp1.getData() + tmp2.getData() + 1;
                 if(addedInt >= 10){
-                    carry=addedInt / 10;
+                    carry=1;
                     addedInt = (addedInt % 10);
                 }else{
                     carry=0;
@@ -97,11 +91,11 @@ public class Operations {
             additionInputDontMatch(carry, addedList, tmp1);
         } else if (tmp2 != null){
             additionInputDontMatch(carry, addedList, tmp2);
-        } else if (tmp1 == null && tmp2 == null && carry != 0){
-            addedList.insertLast(new Node(carry));
+        } else if (tmp1 == null && tmp2 == null && carry == 1){
+            addedList.insertLast(new Node(1));
         }
 
-        return addedList;
+        return addedList.toString();
     }
 
     /**
@@ -112,8 +106,8 @@ public class Operations {
      */
     private void additionInputDontMatch(int carry, LinkedList addedList, Node tmp1) {
         while (tmp1 != null){
-            if (carry != 0) {
-                addedList.insertLast(new Node(carry + tmp1.getData()));
+            if (carry == 1) {
+                addedList.insertLast(new Node(1 + tmp1.getData()));
                 carry=0;
             }
             else{

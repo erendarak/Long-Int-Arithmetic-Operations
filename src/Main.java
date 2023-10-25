@@ -23,25 +23,28 @@ public class Main {
 
         Operations operations = new Operations(longNumber1, longNumber2, linkedList1, linkedList2);
 
-
-        System.out.println("==== multiplication regular ====");
-        System.out.println(operations.Multiplication());
-
         System.out.println("==== l1 inverted ====");
         System.out.println(linkedList1.toString());
 
         System.out.println("==== l2 inverted ====");
         System.out.println(linkedList2.toString());
 
-        System.out.println("==== addition regular ====");
-        System.out.println(operations.Addition(linkedList1,linkedList2).toString());
+        System.out.println(":::\nPress what operation do you want to use\n 1-Addition (Press 1)\n 2-Subtraction (Press 2)\n 3-Multiplication (Press 3)\n:::");
+        int givenInt = scanner.nextInt();
 
-        System.out.println("==== subtraction regular ====");
-        System.out.println(operations.Subtraction());
-
-
-
-
-
+        switch (givenInt){
+            case 1:
+                System.out.println("==== addition regular ====");
+                System.out.println(operations.Addition());
+                break;
+            case 2:
+                System.out.println("==== subtraction regular ====");
+                System.out.println(operations.Subtraction());
+                break;
+            case 3:
+                System.out.println("==== multiplication regular ====");
+                System.out.println(operations.Multiplication());
+                break;
+        }
     }
 }
