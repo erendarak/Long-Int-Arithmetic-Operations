@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ae0c064-5364-48a7-a1fe-260bb1e5ad91" name="Changes" comment="Added Multiplication method. Still need to fix addition method.">
+    <list default="true" id="9ae0c064-5364-48a7-a1fe-260bb1e5ad91" name="Changes" comment="Fixed addition method. Just division method left.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -72,7 +72,9 @@
       <workItem from="1698087742442" duration="2047000" />
       <workItem from="1698131006800" duration="803000" />
       <workItem from="1698213908225" duration="933000" />
-      <workItem from="1698259022755" duration="2266000" />
+      <workItem from="1698259022755" duration="4215000" />
+      <workItem from="1698344821432" duration="326000" />
+      <workItem from="1698345181025" duration="587000" />
     </task>
     <task id="LOCAL-00001" summary="Created classes for calculations. Added Addition and Subtraction methods for operations. Added LinkedList methods for general usage. Added LongNumber to have long string.">
       <created>1697397491769</created>
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698261088888</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Fixed addition method. Just division method left.">
+      <created>1698262632198</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698262632198</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +114,7 @@
     <MESSAGE value="Created classes for calculations. Added Addition and Subtraction methods for operations. Added LinkedList methods for general usage. Added LongNumber to have long string." />
     <MESSAGE value="Fixed Subtraction method." />
     <MESSAGE value="Added Multiplication method. Still need to fix addition method." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Multiplication method. Still need to fix addition method." />
+    <MESSAGE value="Fixed addition method. Just division method left." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed addition method. Just division method left." />
   </component>
 </project>
