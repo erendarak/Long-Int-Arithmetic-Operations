@@ -7,6 +7,7 @@ public class Operations {
     int counter2 = 0;                         //Counter2 for the size of the linked list
 
 
+
     /**
      * This constructor allow us to create our operations class with given longNumbers.
      * @param firstString first long number
@@ -23,26 +24,33 @@ public class Operations {
         Transform();
     }
 
+    public Operations(LongNumber firstString, LinkedList linkedList1){
+        this.firstString = firstString;
+        this.linkedList1 = linkedList1;
+        Transform();
+    }
+
     /**
      * This is the method that will be used for transforming our long string to have a linked list with every number on its node in reversed form and counts it.
      */
     public void Transform(){
-
-        for(int i = 0; i< firstString.getStringData().length(); i++){
-            char tmp1 = firstString.getStringData().charAt(i);
-            int tmp11 = tmp1 - '0';
-            Node tmp111 = new Node(tmp11);
-            linkedList1.insertLast(tmp111);
-            counter1++;
+        if(firstString != null){
+            for(int i = 0; i< firstString.getStringData().length(); i++){
+                char tmp1 = firstString.getStringData().charAt(i);
+                int tmp11 = tmp1 - '0';
+                Node tmp111 = new Node(tmp11);
+                linkedList1.insertLast(tmp111);
+                counter1++;
+            }
         }
-
-        for(int j = 0; j< secondString.getStringData().length(); j++){
-            char tmp2 = secondString.getStringData().charAt(j);
-            int tmp22 = tmp2 - '0';
-            linkedList2.insertLast(new Node(tmp22));
-            counter2++;
+        if (secondString != null){
+            for(int j = 0; j< secondString.getStringData().length(); j++){
+                char tmp2 = secondString.getStringData().charAt(j);
+                int tmp22 = tmp2 - '0';
+                linkedList2.insertLast(new Node(tmp22));
+                counter2++;
+            }
         }
-
     }
 
     /**
@@ -245,10 +253,23 @@ public class Operations {
 
     /**
      * Division operator of our operations class.
-     * @param firstString
-     * @param secondString
      */
-    public void Division(LongNumber firstString, LongNumber secondString){
+    public String Division(int divisor){
+        LinkedList dividedList = new LinkedList();
+        int carry = 0;
+        linkedList1.reverseList(linkedList1);
+        Node tmp = linkedList1.getHead();
+        while (tmp != null) {
+            int dividend = tmp.getData() + carry * 10;
+            dividedList.insertFirst(new Node(dividend / divisor));
+            carry = dividend % divisor;
+            tmp = tmp.getNext();
+        }
 
+        while (dividedList.numberOfElements() > 1 && dividedList.getHead().getData() == 0) {
+            dividedList.deleteFirst();
+        }
+
+        return dividedList.toString();
     }
 }

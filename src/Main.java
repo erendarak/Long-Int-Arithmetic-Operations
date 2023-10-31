@@ -36,6 +36,9 @@ public class Main {
         System.out.println("==== Subtraction ====");
         System.out.println(operations.Subtraction());
 
+        System.out.println("==== Division ====");
+        System.out.println(operations.Division(7));
+
 
         System.out.println("-------------------------------------------------------------------");
 
@@ -67,6 +70,9 @@ public class Main {
 
         System.out.println("==== Subtraction ====");
         System.out.println(operations2.Subtraction());
+
+        System.out.println("==== Division ====");
+        System.out.println(operations2.Division(7));
 
         System.out.println("-------------------------------------------------------------------");
 
@@ -104,6 +110,19 @@ public class Main {
         System.out.println("==== Subtraction ====");
         System.out.println(operations4.Subtraction());
 
+        System.out.println("==== Division ====");
+        System.out.println(operations3.Division(7));
 
+
+
+
+
+        String given7 = "1000";
+        LongNumber longNumber7 = new LongNumber(given7);
+        LinkedList linkedList9 = new LinkedList();
+        int divisor = 2;
+
+        Operations operations5 = new Operations(longNumber7, linkedList9);
+        System.out.println(operations5.Division(divisor));
     }
 }
